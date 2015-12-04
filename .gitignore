@@ -2,3 +2,9 @@
 .env.*.php
 .env.php
 .env
+.idea
+Homestead
+logs
+.vagrant
+Vagrantfile
+laravel/vendor
