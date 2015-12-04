@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Infrastructure\DBConnection;
+use App\Repository\StationRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
             'password'  => env('DB_PASSWORD', ''),
             'charset' => 'utf8'
         ]);
+
+        $stationRepository = StationRepository::getInstance();
+        var_dump($stationRepository->getAll());
     }
 
     /**
