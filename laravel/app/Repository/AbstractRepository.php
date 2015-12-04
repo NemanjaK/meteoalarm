@@ -123,12 +123,16 @@ abstract class AbstractRepository
      */
     public function save(Entity $entity)
     {
-        $dto = $entity->getDto();
+
         $query = null;
         if (intval($entity->getId()) > 0 && !$entity->isForceInsert()) {
+            $entity->setDateUpdated(date("Y-m-d H:i:s"));
+            $dto = $entity->getDto();
             unset($dto['id']); // No need to "update" ID field
             $query = $this->queryBuilder->update($this->getTableName(), $dto, $entity->getId());
         } else {
+            $entity->setDateCreated(date("Y-m-d H:i:s"));
+            $dto = $entity->getDto();
             $query = $this->queryBuilder->insertInto($this->getTableName(), $dto);
         }
         try {

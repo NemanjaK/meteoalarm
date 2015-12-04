@@ -1,6 +1,8 @@
 <?php
 namespace App\Repository\Entity;
 
+use App\Repository\AbstractRepository;
+
 /**
  * Class Entity
  * Abstract class that is extended
@@ -16,16 +18,38 @@ class Entity implements \JsonSerializable
     private static $entityFields = [];
     /** @field */
     protected $id;
+    /** @field * */
+    protected $date_created;
+    /** @field * */
+    protected $date_updated;
     // Keeps reflection data for current instance entity class
     protected $fields = [];
     // If ID is specified this is the only way to force "insert" operation.
     private $forceInsert = false;
+    /** @var AbstractRepository */
+    protected $repository;
 
+    /**
+     * Entity constructor.
+     *
+     * @param array $dto
+     */
     protected function __construct($dto = [])
     {
         $this->initializeFields();
+        $this->initializeRepository();
         if (!empty($dto)) {
             $this->initializeFromDto($dto);
+        }
+    }
+
+    protected function initializeRepository()
+    {
+        $cNames = explode("\\", get_class($this));
+        $scName = end($cNames);
+        $className = "App\\Repository\\" . $scName . "Repository";
+        if (class_exists($className)) {
+            $this->repository = $className::getInstance();
         }
     }
 
@@ -112,6 +136,38 @@ class Entity implements \JsonSerializable
     }
 
     /**
+     * @return mixed
+     */
+    public function getDateCreated()
+    {
+        return $this->date_created;
+    }
+
+    /**
+     * @param mixed $date_created
+     */
+    public function setDateCreated($date_created)
+    {
+        $this->date_created = $date_created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateUpdated()
+    {
+        return $this->date_updated;
+    }
+
+    /**
+     * @param mixed $date_updated
+     */
+    public function setDateUpdated($date_updated)
+    {
+        $this->date_updated = $date_updated;
+    }
+
+    /**
      * @return boolean
      */
     public function isForceInsert()
@@ -138,5 +194,13 @@ class Entity implements \JsonSerializable
     function jsonSerialize()
     {
         return $this->getDto();
+    }
+
+    public function save()
+    {
+        $result = $this->repository->save($this);
+        if (empty($this->id)) {
+            $this->setId($result);
+        }
     }
 }

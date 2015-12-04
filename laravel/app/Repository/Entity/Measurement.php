@@ -6,8 +6,6 @@ namespace App\Repository\Entity;
 class Measurement extends Entity
 {
     /** @field * */
-    private $id;
-    /** @field * */
     private $station_id;
     /** @field * */
     private $component_id;
@@ -15,10 +13,11 @@ class Measurement extends Entity
     private $measure_timestamp;
     /** @field * */
     private $alert;
-    /** @field * */
-    private $date_created;
-    /** @field * */
-    private $date_updated;
+
+    public function __construct($dto = [])
+    {
+        parent::__construct($dto);
+    }
 
     /**
      * @return mixed
@@ -98,38 +97,6 @@ class Measurement extends Entity
     public function setAlert($alert)
     {
         $this->alert = $alert;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateCreated()
-    {
-        return $this->date_created;
-    }
-
-    /**
-     * @param mixed $date_created
-     */
-    public function setDateCreated($date_created)
-    {
-        $this->date_created = $date_created;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateUpdated()
-    {
-        return $this->date_updated;
-    }
-
-    /**
-     * @param mixed $date_updated
-     */
-    public function setDateUpdated($date_updated)
-    {
-        $this->date_updated = $date_updated;
     }
 
 

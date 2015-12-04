@@ -6,17 +6,17 @@ namespace App\Repository\Entity;
 class Component extends Entity
 {
     /** @field * */
-    private $id;
-    /** @field * */
     private $sepa_id;
     /** @field * */
     private $name;
     /** @field * */
     private $unit;
-    /** @field * */
-    private $date_created;
-    /** @field * */
-    private $date_updated;
+
+
+    public function __construct($dto = [])
+    {
+        parent::__construct($dto);
+    }
 
     /**
      * @return mixed
@@ -80,38 +80,6 @@ class Component extends Entity
     public function setUnit($unit)
     {
         $this->unit = $unit;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateCreated()
-    {
-        return $this->date_created;
-    }
-
-    /**
-     * @param mixed $date_created
-     */
-    public function setDateCreated($date_created)
-    {
-        $this->date_created = $date_created;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateUpdated()
-    {
-        return $this->date_updated;
-    }
-
-    /**
-     * @param mixed $date_updated
-     */
-    public function setDateUpdated($date_updated)
-    {
-        $this->date_updated = $date_updated;
     }
 
 

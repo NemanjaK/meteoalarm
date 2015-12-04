@@ -11,7 +11,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping database structure for meteoalarm
-DROP DATABASE IF EXISTS `meteoalarm`;
 CREATE DATABASE IF NOT EXISTS `meteoalarm` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `meteoalarm`;
 
@@ -19,7 +18,7 @@ USE `meteoalarm`;
 -- Dumping structure for table meteoalarm.alert_queue
 DROP TABLE IF EXISTS `alert_queue`;
 CREATE TABLE IF NOT EXISTS `alert_queue` (
-  `id` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `subscriber_id` int(11) NOT NULL,
   `measurement_id` int(11) NOT NULL,
   `message` text NOT NULL,
@@ -36,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `alert_queue` (
 -- Dumping structure for table meteoalarm.component
 DROP TABLE IF EXISTS `component`;
 CREATE TABLE IF NOT EXISTS `component` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sepa_id` int(10) unsigned NOT NULL,
   `name` varchar(50) NOT NULL,
   `unit` varchar(50) DEFAULT NULL,
@@ -51,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `component` (
 -- Dumping structure for table meteoalarm.measurement
 DROP TABLE IF EXISTS `measurement`;
 CREATE TABLE IF NOT EXISTS `measurement` (
-  `id` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `station_id` int(10) unsigned NOT NULL,
   `component_id` int(10) unsigned NOT NULL,
   `measure_timestamp` datetime NOT NULL,
@@ -59,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `measurement` (
   `date_created` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `measurementStationFK` (`station_id`),
   KEY `measurementComponentFK` (`component_id`),
-  CONSTRAINT `measurementComponentFK` FOREIGN KEY (`component_id`) REFERENCES `component` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `measurementStationFK` FOREIGN KEY (`station_id`) REFERENCES `station` (`id`) ON UPDATE CASCADE
+  KEY `measurementStationFK` (`station_id`),
+  CONSTRAINT `measurementComponentFK` FOREIGN KEY (`component_id`) REFERENCES `component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `measurementStationFK` FOREIGN KEY (`station_id`) REFERENCES `station` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -71,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `measurement` (
 -- Dumping structure for table meteoalarm.station
 DROP TABLE IF EXISTS `station`;
 CREATE TABLE IF NOT EXISTS `station` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `eoi_code` varchar(10) NOT NULL,
   `name` varchar(250) NOT NULL,
   `network` varchar(10) NOT NULL,
@@ -94,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `station` (
 -- Dumping structure for table meteoalarm.subscriber
 DROP TABLE IF EXISTS `subscriber`;
 CREATE TABLE IF NOT EXISTS `subscriber` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(200) NOT NULL,
   `latitude` double NOT NULL,
   `longitude` double NOT NULL,

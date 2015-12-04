@@ -6,17 +6,16 @@ namespace App\Repository\Entity;
 class Subscriber extends Entity
 {
     /** @field * */
-    private $id;
-    /** @field * */
     private $uuid;
     /** @field * */
     private $latitude;
     /** @field * */
     private $longitude;
-    /** @field * */
-    private $date_created;
-    /** @field * */
-    private $date_updated;
+
+    public function __construct($dto = [])
+    {
+        parent::__construct($dto);
+    }
 
     /**
      * @return mixed
@@ -80,38 +79,6 @@ class Subscriber extends Entity
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateCreated()
-    {
-        return $this->date_created;
-    }
-
-    /**
-     * @param mixed $date_created
-     */
-    public function setDateCreated($date_created)
-    {
-        $this->date_created = $date_created;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateUpdated()
-    {
-        return $this->date_updated;
-    }
-
-    /**
-     * @param mixed $date_updated
-     */
-    public function setDateUpdated($date_updated)
-    {
-        $this->date_updated = $date_updated;
     }
 
 
