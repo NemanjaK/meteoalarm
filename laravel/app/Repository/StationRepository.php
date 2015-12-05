@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository;
+use App\Repository\Entity\Station;
 
 /**
  * Class StationRepository
@@ -39,5 +40,15 @@ class StationRepository extends AbstractRepository
     public function getEntityClass()
     {
         return "\\App\\Repository\\Entity\\Station";
+    }
+
+    public function findBySepaId($sepaId)
+    {
+        $query = $this->queryBuilder->from(self::$tableName);
+        $query->where('sepa_id', $sepaId);
+        $query->limit(1);
+        $dto = $query->fetch();
+
+        return !empty($dto) ? new Station($dto) : null;
     }
 }

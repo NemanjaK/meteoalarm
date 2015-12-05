@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository;
+use App\Repository\Entity\Component;
 
 /**
  * Class ComponentRepository
@@ -40,5 +41,15 @@ class ComponentRepository extends AbstractRepository
     public function getEntityClass()
     {
         return "\\App\\Repository\\Entity\\Component";
+    }
+
+    public function findBySepaId($sepaId)
+    {
+        $query = $this->queryBuilder->from(self::$tableName);
+        $query->where('sepa_id', $sepaId);
+        $query->limit(1);
+        $dto = $query->fetch();
+
+        return !empty($dto) ? new Component($dto) : null;
     }
 }
