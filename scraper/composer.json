@@ -1,11 +1,14 @@
 {
   "require": {
     "guzzlehttp/guzzle": "~6.0",
-    "sunra/php-simple-html-dom-parser": "^1.5"
+    "sunra/php-simple-html-dom-parser": "^1.5",
+    "vlucas/phpdotenv": "^2.1",
+    "lichtner/fluentpdo": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "Importers\\": "Importers/"
+      "Importers\\": "Importers/",
+      "App\\": "../laravel/app/"
     }
   }
 }

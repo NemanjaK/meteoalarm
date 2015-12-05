@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8bee6807465f9dbf3c84ec25e41ebcd4",
-    "content-hash": "0515536af3e666c8b55e7ad4b44a8cb6",
+    "hash": "da8c1a7e355d4f495e04d8187fde833b",
+    "content-hash": "4a07de8dfb1d82d446ca8c6f44e00769",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -179,6 +179,46 @@
             "time": "2015-11-03 01:34:55"
         },
         {
+            "name": "lichtner/fluentpdo",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lichtner/fluentpdo.git",
+                "reference": "8a34b9c6742544bda9d193e814101cd065d88875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lichtner/fluentpdo/zipball/8a34b9c6742544bda9d193e814101cd065d88875",
+                "reference": "8a34b9c6742544bda9d193e814101cd065d88875",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "FluentPDO/FluentPDO.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0",
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Marek Lichtner",
+                    "homepage": "http://licht.sk/"
+                }
+            ],
+            "description": "FluentPDO is small PHP library for rapid query building. Killer feature is smart join builder which generates joins automatically.",
+            "homepage": "http://fluentpdo.com/",
+            "keywords": [
+                "database",
+                "dbal",
+                "pdo"
+            ],
+            "time": "2015-02-24 20:50:47"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0",
             "source": {
@@ -269,6 +309,57 @@
                 "parser"
             ],
             "time": "2013-05-04 14:32:03"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "c10040e0df17d2ee88e9212b50cbe9319e878f59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/c10040e0df17d2ee88e9212b50cbe9319e878f59",
+                "reference": "c10040e0df17d2ee88e9212b50cbe9319e878f59",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "homepage": "http://github.com/vlucas/phpdotenv",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2015-10-28 18:53:35"
         }
     ],
     "packages-dev": [],
