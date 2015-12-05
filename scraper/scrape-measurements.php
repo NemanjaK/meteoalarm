@@ -51,7 +51,7 @@ foreach ($stations as $key => $station) {
 
         foreach ($hourly['com_values'] as $componentSepaId => $value) {
             if (is_null($value) === false) {
-                $component = $componentRepo->findBySepaId($componentSepaId);
+                $component = $componentRepo->getBySepaId($componentSepaId);
                 try {
                     $measurement = new Measurement([
                         'station_id' => $station->getId(),

@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-        \App\Console\Commands\CheckAlertNotifications::class
+        \App\Console\Commands\CheckAlertNotifications::class,
+        \App\Console\Commands\CalculateStationCAQI::class,
     ];
 
     /**
@@ -27,5 +28,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('alerts:update')->everyThirtyMinutes();
+        $schedule->command('measurement:caqi')->everyThirtyMinutes()->sendOutputTo(dirname(__DIR__) . "/../../logs/caqi-log");
     }
 }

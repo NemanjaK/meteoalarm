@@ -36,6 +36,10 @@ class Station extends Entity
     private $longitude;
     /** @field */
     private $altitude;
+    /** @field */
+    private $aqi_value;
+    /** @field */
+    private $aqi_timestamp;
 
     public function __construct($dto = [])
     {
@@ -234,5 +238,36 @@ class Station extends Entity
         $this->altitude = $altitude;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAqiValue()
+    {
+        return $this->aqi_value;
+    }
+
+    /**
+     * @param mixed $aqi_value
+     */
+    public function setAqiValue($aqi_value)
+    {
+        $this->aqi_value = $aqi_value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAqiTimestamp()
+    {
+        return $this->aqi_timestamp;
+    }
+
+    /**
+     * @param mixed $aqi_timestamp
+     */
+    public function setAqiTimestamp($aqi_timestamp)
+    {
+        $this->aqi_timestamp = $aqi_timestamp;
+    }
 
 }

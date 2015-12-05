@@ -46,7 +46,7 @@ class ImportMeasurements
             $response = $this->client->get($this->sepaPage, ['query' => [
                 $this->stationQueryString => (array)$this->stationSepaId,
                 $this->componentsQueryString => $componentIdsArray,
-                'periodi' => ['dana7'],
+                'periodi' => ['danas'],
                 'agregacija' => [1],
                 'pregledtabela_length' => 100,
             ]]);

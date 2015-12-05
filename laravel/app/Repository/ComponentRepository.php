@@ -43,7 +43,12 @@ class ComponentRepository extends AbstractRepository
         return "\\App\\Repository\\Entity\\Component";
     }
 
-    public function findBySepaId($sepaId)
+    /**
+     * @param $sepaId
+     *
+     * @return \App\Repository\Entity\Component|null
+     */
+    public function getBySepaId($sepaId)
     {
         $query = $this->queryBuilder->from(self::$tableName);
         $query->where('sepa_id', $sepaId);

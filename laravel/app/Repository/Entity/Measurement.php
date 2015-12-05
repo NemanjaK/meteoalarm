@@ -3,6 +3,9 @@
 namespace App\Repository\Entity;
 
 
+use App\Repository\ComponentRepository;
+use App\Repository\StationRepository;
+
 class Measurement extends Entity
 {
     /** @field * */
@@ -16,9 +19,21 @@ class Measurement extends Entity
     /** @field * */
     private $value;
 
+    /** @var Component */
+    private $component;
+    /** @var \App\Repository\ComponentRepository|null */
+    private $componentRepository;
+
+    /** @var Station */
+    private $station;
+    /** @var \App\Repository\StationRepository|null */
+    private $stationRepository;
+
     public function __construct($dto = [])
     {
         parent::__construct($dto);
+        $this->componentRepository = ComponentRepository::getInstance();
+        $this->stationRepository = StationRepository::getInstance();
     }
 
     /**
@@ -115,6 +130,48 @@ class Measurement extends Entity
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStation()
+    {
+        if (empty($this->station)) {
+            /** @var Station $station */
+            $station = $this->componentRepository->getById($this->getStationId());
+            $this->setStation($station);
+        }
+        return $this->station;
+    }
+
+    /**
+     * @param mixed $station
+     */
+    public function setStation(Station $station)
+    {
+        $this->station = $station;
+    }
+
+    /**
+     * @return Component
+     */
+    public function getComponent()
+    {
+        if (empty($this->component)) {
+            /** @var Component $component */
+            $component = $this->componentRepository->getById($this->getComponentId());
+            $this->setComponent($component);
+        }
+        return $this->component;
+    }
+
+    /**
+     * @param mixed $component
+     */
+    public function setComponent(Component $component)
+    {
+        $this->component = $component;
     }
 
 
