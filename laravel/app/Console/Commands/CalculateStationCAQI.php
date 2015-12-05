@@ -59,10 +59,6 @@ class CalculateStationCAQI extends Command
             /** @var Station $station */
             foreach ($stations as $station) {
 
-                if ($station->getType() === Station::TYPE_INDUSTRIAL) {
-                    continue;
-                }
-
                 $indexes = [];
                 $dailyAverages = [];
                 $stationCaqi = null;

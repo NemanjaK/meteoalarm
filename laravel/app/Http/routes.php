@@ -20,3 +20,6 @@ Route::resource('/api/subscribe', 'SubscribeController',
 
 Route::resource('/api/notify', 'NotifyController',
     ['only' => ['show']]);
+
+Route::resource('/api/quality', 'QualityController',
+    ['only' => ['index']]);
