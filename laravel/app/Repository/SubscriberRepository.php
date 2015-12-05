@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Repository\Entity\Subscriber;
+
 /**
  * Class SubscriberRepository
  * @package App\Repository
@@ -29,6 +31,14 @@ class SubscriberRepository extends AbstractRepository
         }
 
         return self::$instance;
+    }
+
+    public function getByUuid($uuid) {
+        $query = $this->queryBuilder->from(self::$tableName);
+        $query->where('uuid', $uuid);
+        $query->limit(1);
+        $dto = $query->fetch();
+        return !empty($dto) ? new Subscriber($dto) : null;
     }
 
     public function getTableName()
