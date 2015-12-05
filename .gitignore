@@ -3,5 +3,10 @@
 .env.php
 .env
 .idea
+Homestead
+logs
+.vagrant
+Vagrantfile
+laravel/vendor
 /scraper/data-cache/*
 /scraper/vendor
