@@ -16,8 +16,6 @@ class AlertQueueItem extends Entity
     private $message;
     /** @field * */
     private $notified;
-    /** @field */
-    private $value;
 
     public function __construct($dto = [])
     {
@@ -107,22 +105,6 @@ class AlertQueueItem extends Entity
     public function setNotified($notified)
     {
         $this->notified = $notified;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return doubleval($this->value);
-    }
-
-    /**
-     * @param mixed $value
-     */
-    public function setValue($value)
-    {
-        $this->value = doubleval($value);
     }
 
 

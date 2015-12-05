@@ -13,6 +13,8 @@ class Measurement extends Entity
     private $measure_timestamp;
     /** @field * */
     private $alert;
+    /** @field * */
+    private $value;
 
     public function __construct($dto = [])
     {
@@ -97,6 +99,22 @@ class Measurement extends Entity
     public function setAlert($alert)
     {
         $this->alert = $alert;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
     }
 
 
