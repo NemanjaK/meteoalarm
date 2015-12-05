@@ -114,7 +114,7 @@ class AlertQueueItem extends Entity
      */
     public function getValue()
     {
-        return $this->value;
+        return doubleval($this->value);
     }
 
     /**
@@ -122,8 +122,8 @@ class AlertQueueItem extends Entity
      */
     public function setValue($value)
     {
-        $this->value = $value;
+        $this->value = doubleval($value);
     }
-    
+
 
 }
