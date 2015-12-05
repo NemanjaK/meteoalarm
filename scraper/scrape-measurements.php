@@ -52,13 +52,19 @@ foreach ($stations as $key => $station) {
         foreach ($hourly['com_values'] as $componentSepaId => $value) {
             if (is_null($value) === false) {
                 $component = $componentRepo->findBySepaId($componentSepaId);
-                $measurement = new Measurement([
-                    'station_id' => $station->getId(),
-                    'measure_timestamp' => $timestamp,
-                    'component_id' => $component->getId(),
-                    'alert' => 0,
-                ]);
-                $measurement->save();
+                try {
+                    $measurement = new Measurement([
+                        'station_id' => $station->getId(),
+                        'component_id' => $component->getId(),
+                        'value' => doubleval($value),
+                        'measure_timestamp' => $timestamp,
+                        'alert' => 0,
+                    ]);
+                    $measurement->save();
+                } catch (QueryException $e) {
+                    echo 'Skpped' . PHP_EOL;
+                }
+
             }
         }
 
