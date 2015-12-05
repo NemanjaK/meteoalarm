@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::resource('/api/subscribe', 'SubscribeController',
     ['only' => ['store', 'destroy']]);
+
+Route::resource('/api/notify', 'NotifyController',
+    ['only' => ['show']]);

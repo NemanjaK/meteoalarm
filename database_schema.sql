@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `component` (
   `unit` varchar(50) DEFAULT NULL,
   `date_created` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sepa_id` (`sepa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -52,6 +53,7 @@ DROP TABLE IF EXISTS `measurement`;
 CREATE TABLE IF NOT EXISTS `measurement` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `station_id` int(10) unsigned NOT NULL,
+  `value` double unsigned DEFAULT NULL,
   `component_id` int(10) unsigned NOT NULL,
   `measure_timestamp` datetime NOT NULL,
   `alert` tinyint(1) NOT NULL DEFAULT '0',
@@ -84,7 +86,9 @@ CREATE TABLE IF NOT EXISTS `station` (
   `date_created` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
   `altitude` float(5,2) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sepa_id` (`sepa_id`),
+  UNIQUE KEY `eoi_code` (`eoi_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.

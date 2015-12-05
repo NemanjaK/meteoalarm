@@ -33,6 +33,11 @@ class SubscriberRepository extends AbstractRepository
         return self::$instance;
     }
 
+    /**
+     * @param $uuid
+     *
+     * @return \App\Repository\Entity\Subscriber|null
+     */
     public function getByUuid($uuid) {
         $query = $this->queryBuilder->from(self::$tableName);
         $query->where('uuid', $uuid);
