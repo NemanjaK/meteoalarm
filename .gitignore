@@ -8,4 +8,5 @@ logs
 .vagrant
 Vagrantfile
 laravel/vendor
-nemc-ideas
+/scraper/data-cache/*
+/scraper/vendor

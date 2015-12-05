@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+	
+	
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700&amp;subset=latin,latin-ext">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/libraries/bootstrap-select/dist/css/bootstrap-select.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/libraries/bootstrap-fileinput/css/fileinput.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/libraries/nvd3/nv.d3.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/libraries/OwlCarousel/owl-carousel/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/realsite-admin.css">
+		<link rel="stylesheet" type="text/css" href="assets/plugins/pl-table/datatables/media/css/jquery.dataTables.css">
+		<link rel="stylesheet" type="text/css" href="assets/plugins/pl-table/datatables/media/css/dataTables.bootstrap.css">
+		
+		<!-- google mape -->
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+		
+		<script type="text/javascript" src="assets/js/jquery.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.sparkline.js"></script>
+		<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
+		
+		<script src="assets/plugins/highcharts/js/highcharts.js"></script>
+		<script src="assets/plugins/highcharts/js/modules/data.js"></script>
+		<script src="assets/plugins/highcharts/js/modules/exporting.js"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		
+		<!-- Plugins Tables --> 
+		<script src="assets/plugins/pl-table/datatables/media/js/jquery.dataTables.js"></script> 
+		<script src="assets/plugins/pl-table/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+		<script src="assets/plugins/pl-table/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script> 
+		
+		
+		<title>SEPA - DRŽAVNA MREŽA AUTOMATSKIH STANICA ZA PRAĆENJE KVALITETA VAZDUHA</title>
+	</head>
+	
+	<body class="open hide-secondary-sidebar">
+	<div style="height:30px;  background:#E7FFCD;">
+	<div style="float:right; font-size:11px; font-weight:bold; margin-top:8px; margin-right:10px;">
+		<a href="?lng=en" class="jezici"><img src="assets/flags/en.png"> English</a> <a href="?lng=sr" class="jezici"><img src="assets/flags/sr.png"> Srpski</a> 			</div>		
+		<div style="float:right; font-size:11px; font-weight:bold; margin-top:8px; margin-right:8px;">
+		WEB PORTAL JE U FAZI USPOSTAVLJANJA		
+		</div>
+		
+		</div>
+		<div class="admin-wrapper">
+			<div class="admin-navigation">
+				<div class="admin-navigation-inner">
+				
+				<div id="sepalogo">
+								<a href="index.php">
+									<img src="assets/img/sepalogo2.png" alt="">
+								</a>
+								
+							<div id="naslovsajta"><br> OBJEDINJENI PRIKAZ AUTOMATSKOG MONITORINGA KVALITETA VAZDUHA U REPUBLICI SRBIJI</div>
+							
+							</div>
+					<nav>
+						<ul class="menu">
+							
+							
+							
+							
+							<li class=" active ">
+								<a href="index.php"><strong><i class="fa fa-globe"></i></strong> <span>MAPA</span></a>
+							</li>
+							<li class="">
+								<a href="pregledpodatakazbirni.php"><strong><i class="fa fa-bar-chart"></i></strong> <span>Pregled podataka</span></a>
+							</li>
+							
+															<li>
+									<a href="pregledstanica.php"><strong><i class="fa fa-list"></i></strong> <span>Pregled stanica</span></a>
+								</li>
+														
+														
+															<li>
+									<a href="pomoc.php"><strong><i class="fa fa-question-circle"></i></strong> <span>Pomoć</span></a>
+								</li>
+														
+															<li>
+									<a href="infooprojektu.php"><strong><i class="fa fa-info-circle"></i></strong> <span>Info o projektu</span></a>
+								</li>
+														
+														
+														
+															<li>
+									<a href="kontakt.php"><strong><i class="fa fa-envelope"></i></strong> <span>Kontakt</span></a>
+								</li>
+														
+							
+						</ul>
+					</nav>
+					
+					<div class="projects" style="padding:8px; font-size:11px; color:#666666;">
+					
+					
+				
+					
+					<div id="ucesnici" style="list-style: square inside;"><b>UČESNICI U PROJEKTU:</b><br><br><ul><li>Ministarstvo poljoprivrede i zaštite životne sredine -<b> <i>Agencija za zaštitu životne sredine</i></b></li><li>Pokrajinski sekretarijat za urbanizam, graditeljstvo i zaštitu životne sredine, Novi Sad</li><li>Sekretarijat za zaštitu životne sredine Grada Pančeva</li><li>Gradski zavod za javno zdravlje Beograd</li></ul></div>
+					
+						<br><br>
+						© 2013 Agencija za zaštitu životne sredine					</div><!-- /.projects -->
+					<div class="layer"></div>
+				</div><!-- /.admin-navigation-inner -->
+			</div><!-- /.admin-navigation -->
+			
+			<div class="admin-content">
+			<div class="admin-content-inner">									
+<script>
+	//google mapa
+	$(document).ready(function() {
+		var map = null;
+		var marker = null;
+		
+		var infowindow = new google.maps.InfoWindow(
+		{ 
+			size: new google.maps.Size(150,50)
+		});
+		
+		// A function to create the marker and set up the event window function 
+		function createMarker(latlng, name, html) {
+			var contentString = html;
+			var marker = new google.maps.Marker({
+				position: latlng,
+				map: map,
+				zIndex: Math.round(latlng.lat()*-100000)<<5
+			});
+			
+			google.maps.event.addListener(marker, 'click', function() {
+				//alert ("dodao");
+				
+				
+				//infowindow.setContent(contentString); 
+				//infowindow.open(map,marker);
+			});
+			google.maps.event.trigger(marker, 'click');    
+			return marker;
+		}
+		
+		function moveMarker(lat,lng) {
+			var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng)); 
+			if (marker != undefined) {
+			marker.setPosition(latlng);}
+			else {
+				marker = new google.maps.Marker({
+					position: latlng,
+					map: map,
+				});
+			}
+			//marker.setPosition(latlng);
+			map.setCenter(latlng);
+			
+		}
+		
+		function initialize() {
+			
+			// create the map
+			var myOptions = {
+				zoom: 14,
+				center: new google.maps.LatLng(45.8170982340701,20.4435905814171),
+				mapTypeControl: true,
+				
+				navigationControl: true,
+				mapTypeId: google.maps.MapTypeId.TERRAIN,
+				styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"labels.text.fill","stylers":[{"color":"#b43b3b"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"lightness":"8"},{"color":"#bcbec0"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#5b5b5b"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7cb3c9"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#abb9c0"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"color":"#fff1f1"},{"visibility":"off"}]}]
+			}
+			map = new google.maps.Map(document.getElementById("map_canvas"),
+			myOptions);
+			
+			google.maps.event.addListener(map, 'click', function() {
+				infowindow.close();
+			});
+			
+			
+			
+			var latlng = new google.maps.LatLng(45.8170982340701,20.4435905814171); 
+			marker = createMarker(latlng, "name", "<b>Location</b><br>"+latlng);
+			
+			//	var marker = new google.maps.Marker({
+			//		position: new google.maps.LatLng(,),
+			//		map: map
+			//	});
+			
+		}
+		
+		initialize();
+		
+		
+		
+		
+		$(function() {
+			
+			
+			/* Use 'html' instead of an array of values to pass options to a sparkline with data in the tag */
+			$('.inlinebar').sparkline('html', {barColor:'#0e96e3', type: 'bar', nullColor: '#999999', height: '17', barWidth: '4'} );
+			
+		});
+		
+		ucitajgrafikon('satni24h','TabTop1');
+		
+	});
+	
+	
+	
+	function ucitajgrafikon(podaci,tabi) {
+		
+	$('#tabovi a[href="#TabTop1"]').tab('show'); // Select tab by name
+	
+		$.ajax({
+					url: "konektori/pregled_grafikon.php",
+					type: "POST",
+					data: $('#formular').serialize(),
+					success: function(response) {
+						
+						$("#graficki").html(response);
+				
+							
+						
+						
+					}            
+				});
+		
+
+		
+		$.ajax({
+					url: "konektori/pregled_tabela.php",
+					type: "POST",
+					data: $('#formular').serialize(),
+					success: function(response) {
+						
+						$("#tabelarni").html(response);
+				
+							
+						
+						
+					}            
+				});
+		
+	}
+	
+		
+		$(function () {
+			
+			
+			
+			$('#container').highcharts({
+				credits: {
+					enabled: false
+				},
+				chart: {
+					backgroundColor: null,
+					zoomType: 'xy',
+					type: 'column'
+				},
+				exporting: {
+					enabled: false
+				},
+				
+				title: {
+					text: '',
+					style: {
+						display: 'none'
+					}
+				},
+				subtitle: {
+					text: '',
+					style: {
+						display: 'none'
+					}
+				},
+				xAxis: {
+					type: 'datetime',
+					dateTimeLabelFormats: { 
+						month: '%e. %b %H:%M',
+						year: '%Y'
+					},
+					gridLineWidth: 0,
+					startOnTick: false,
+					endOnTick: false,
+					minPadding: 0,
+					maxPadding: 0
+					
+					
+				},
+				yAxis: [{ // Prva osa
+					labels: {
+						style: {
+							display: 'none'
+						}
+					},
+					min: 0,
+					max: 5,
+					offset: 70,
+					title: {
+						text: false
+					},
+					opposite: false,
+					plotBands: [{
+					// Light air
+						from: 0,
+						to: 1,
+						
+						label: {
+							text: 'Odličan',
+							style: {
+								color: '#98cc00',
+								fontWeight: 'bold'
+							},
+							x: -65
+						}
+						}, { // Light breeze
+						from: 1,
+						to: 2,
+						
+						label: {
+							text: 'Dobar',
+							style: {
+								color: '#AED2FF',
+								fontWeight: 'bold'
+							},
+							x: -65
+						}
+						}, { // Gentle breeze
+						from: 2,
+						to: 3,
+						
+						label: {
+								text: 'Prihvatljiv',
+							style: {
+								color: '#FFDF00',
+								fontWeight: 'bold'
+							},
+							x: -65
+						}
+						}, { // Moderate breeze
+						from: 3,
+						to: 4,
+						
+						label: {
+							text: 'Zagađen',
+							style: {
+								color: '#FF0000',
+								fontWeight: 'bold'
+							},
+							x: -65
+						}
+					},
+					{ // Moderate breeze
+						from: 4,
+						to: 5,
+						
+						label: {
+							text: 'Jako zagađen',
+							style: {
+								color: '##66669A',
+								fontWeight: 'bold'
+							},
+							
+							x: -65
+						}
+					}            
+					
+					]					
+				}
+				
+				],
+				plotOptions: {
+					series: {
+						cursor: 'pointer',
+						
+						marker: {
+							enabled: false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
+					}
+					
+					
+					
+					
+					
+					
+				},
+				tooltip: {
+					formatter: function() {
+						var s = '<b>'+ Highcharts.dateFormat('%a, %d-%m-%Y %H:%M', this.x) +'</b>';
+						$.each(this.points, function(i, point) {
+							s += '<br/><b>'+ point.series.name +'\t :</b>Indeks ' + Highcharts.numberFormat(point.y+0.5,0);
+						});
+						return s;
+					},
+					shared: true,
+					crosshairs: true
+				},
+				legend: {
+					layout: 'horizontal',
+					backgroundColor: '#FFFFFF',
+					align: 'center',
+					verticalAlign: 'bottom',
+					itemStyle: {
+						font: '9pt Trebuchet MS, Verdana, sans-serif',
+						color: '#222222'
+					}
+					
+					
+				},
+				series: [
+				
+								]
+			});
+		});
+	</script>
+	
+	<div class="admin-content-header">
+		<div class="admin-content-header-inner">
+			<div class="container-fluid">
+				<div class="admin-content-header-logo">
+					<a href="index.php">
+						Kikinda					</a>
+				</div><!-- /admin-content-header-logo -->
+				
+				
+			</div><!-- /.container-fluid -->
+		</div><!-- /.admin-content-header-inner -->
+	</div><!-- /.admin-content-header -->
+	
+	<div class="admin-content-main">
+		<div class="property-browser">
+			<div class="property-browser-left">
+				<strong>Lokacija stanice</strong>
+				<div class="row">
+					<div id="map_canvas" style="width: 100%; height: 300px"></div> 
+				</div><!-- /.row -->
+				
+				
+
+				
+				<div class="row">
+					
+					<table class="table table-simple">
+						<thead>
+							<tr>
+								<th class="min-width nowrap">Meta podaci</th>
+								<th class="min-width nowrap"></th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							
+							
+							<tr><td class="semi-bold">Naziv stanice</td><td>Kikinda</td></tr>
+							<tr><td class="semi-bold">Grad</td><td>Kikinda</td></tr>
+							<tr><td class="semi-bold">Početak rada</td><td>2015-07-02</td></tr>
+							<tr><td class="semi-bold">Pripada mreži</td><td>PS-APV</td></tr>
+							<tr><td class="semi-bold">EOI Code</td><td>RS2003A</td></tr>
+							<tr><td class="semi-bold">Klasifikacija</td><td>industrial</td></tr>
+							<tr><td class="semi-bold">Zona</td><td>suburban</td></tr>
+							<tr><td class="semi-bold">Latitude</td><td>45.8170982340701</td></tr>
+							<tr><td class="semi-bold">Longitude</td><td>20.4435905814171</td></tr>
+							<tr><td class="semi-bold">Latitude DMS</td><td>45° 49' 1'' N</td></tr>
+							<tr><td class="semi-bold">Longitude DMS</td><td>20° 26' 36'' N</td></tr>
+							<tr><td class="semi-bold">Nadmorska visina</td><td>m</td></tr>
+							
+						</tbody>
+					</table>
+					
+					
+				</div><!-- /.row -->
+				
+			</div><!-- /.property-browser-left -->
+			
+			<div class="property-browser-right">
+				
+				
+				
+				
+				
+				
+				
+				<div class="row">
+					
+					<div class="col-sm-12">
+						
+						<strong>SAQI INDEKS ZAGAĐENJA U POSLEDNJIH 24H</strong>
+						
+						<div id="container" style="min-width: 310px; height: 380px; margin-left:-18px;"></div>
+						
+						
+						
+					</div>
+					
+					
+					
+				</div><!-- /.row -->
+				
+				
+				
+				<div class="row">
+					<form id="formular" method="post">
+					<div class="col-sm-2">
+						
+					<strong>Parametri</strong>
+						
+						<div>
+						
+							<label><input name="komponente[]" type="checkbox" value="7" > <b>O3</b></label><br>							<input type="hidden" name="stanica" value="42">
+							<br>
+							<div class="btn-group pull-left" data-toggle="buttons" style="margin-top:0px; margin-bottom:8px;">
+<label class="btn btn-default active" style="font-size: 11px;">
+                    <input type="radio" id="q158" name="tipgrafikona[]" value="line" /><i class="fa fa-line-chart"></i></label> 
+                <label class="btn btn-default "  style="font-size: 11px;">
+                    <input type="radio" id="q156" name="tipgrafikona[]" value="column" /><i class="fa fa-bar-chart"></i></label> 
+             
+                
+               
+            </div>
+			
+							<a  class="btn btn-small" style="background:#7cb5ec;" href="javascript:void(0);"  onclick="ucitajgrafikon('satni24h','TabTop1');"><i class="fa fa-refresh"></i> Osveži</a>
+							
+						</div>
+						
+						
+						
+					</div>
+					
+					<div class="col-sm-10">
+						
+						
+									
+						
+						<div class="tabbable tabbable-bordered tabs-top" id="tabovi">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#TabTop1" data-toggle="tab" >GRAFIČKI PRIKAZ</a></li>
+				<li><a href="#TabTop2" data-toggle="tab" >TABELARNI PRIKAZ</a></li>
+		
+				
+			</ul>
+			
+			<div class="tab-content" style="background:#ffffff;">
+				<div class="tab-pane active" id="TabTop1">
+					<div id="graficki"></div>
+					
+				</div>
+				<!-- // tab 1 -->
+				
+				<div class="tab-pane" id="TabTop2">
+					<div id="tabelarni"></div>
+				</div>
+				<!-- // tab 2 -->
+				
+				
+				
+				
+			</div>
+		</div>
+						
+						
+						
+						
+						
+					</div>
+					</form>
+				</div><!-- /.row -->
+				
+				<h2 class="page-header">Fotografije</h2>
+				
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="property-preview">
+							<div class="property-preview-image">
+								
+								
+								
+								
+																
+								
+							</div><!-- /.property-preview-image -->
+							
+							
+						</div><!-- /.property-preview -->
+					</div><!-- /.col-* -->
+					
+					
+				</div><!-- /.row -->
+			</div><!-- /.property-browser-right -->
+		</div><!-- /.property-browser -->
+	</div><!-- /.container-fluid -->
+	
+	
+	    
+            </div><!-- /.admin-content-main-inner -->
+        </div><!-- /.admin-content -->
+    </div><!-- /.admin-landing-wrapper -->
+
+   
+    <script type="text/javascript" src="assets/libraries/jquery-transit/jquery.transit.js"></script>
+
+    <script type="text/javascript" src="assets/libraries/bootstrap/assets/javascripts/bootstrap/transition.js"></script>
+
+    <script type="text/javascript" src="assets/libraries/bootstrap/assets/javascripts/bootstrap/collapse.js"></script>
+
+
+
+    <script type="text/javascript" src="assets/libraries/autosize/jquery.autosize.js"></script>
+
+    <script type="text/javascript" src="assets/libraries/jquery.scrollTo/jquery.scrollTo.min.js"></script>
+
+
+    <script type="text/javascript" src="assets/libraries/jquery-google-map/infobox.js"></script>
+    <script type="text/javascript" src="assets/libraries/jquery-google-map/markerclusterer.js"></script>
+
+
+    <script type="text/javascript" src="assets/libraries/nvd3/examples/stream_layers.js"></script>
+ <script type="text/javascript" src="assets/js/realsite-admin.js"></script>
+
+	
+			<link href="assets/plugins/bootstrap-multiselect/js/bootstrap-multiselect.css" rel="stylesheet">
+		<script src="assets/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script> 
+    
+
+</body>
+
+
+</html>			
