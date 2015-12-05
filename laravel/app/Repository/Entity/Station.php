@@ -6,6 +6,14 @@ namespace App\Repository\Entity;
 class Station extends Entity
 {
 
+    const TYPE_BACKGROUND = "background";
+    const TYPE_TRAFFIC = "traffic";
+    const TYPE_INDUSTRIAL = "industrial";
+
+    const ZONE_URBAN = "urban";
+    const ZONE_SUBURBAN = "suburban";
+    const ZONE_RURAL = "rural";
+
     /** @field */
     private $eoi_code;
     /** @field */
