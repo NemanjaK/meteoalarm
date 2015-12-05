@@ -2,6 +2,10 @@
 
 namespace App\Repository;
 
+use App\Repository\Entity\Component;
+use App\Repository\Entity\Measurement;
+use App\Repository\Entity\Station;
+
 /**
  * Class MeasurementRepository
  * @package App\Repository
@@ -29,6 +33,22 @@ class MeasurementRepository extends AbstractRepository
         }
 
         return self::$instance;
+    }
+
+    /**
+     * @param \App\Repository\Entity\Station   $station
+     * @param \App\Repository\Entity\Component $component
+     *
+     * @return \App\Repository\Entity\Measurement|null
+     */
+    public function getLatestForStationAndComponent(Station $station, Component $component) {
+        $query = $this->queryBuilder->from(self::$tableName);
+        $query->where('station_id', $station->getId());
+        $query->where('component_id', $component->getId());
+        $query->orderBy('measure_timestamp');
+        $query->limit(1);
+        $dto = $query->fetch();
+        return !empty($dto) ? new Measurement($dto) : null;
     }
 
     public function getTableName()

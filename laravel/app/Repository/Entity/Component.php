@@ -5,6 +5,11 @@ namespace App\Repository\Entity;
 
 class Component extends Entity
 {
+
+    private static $coefficients = [
+        ''
+    ];
+
     /** @field * */
     private $sepa_id;
     /** @field * */
