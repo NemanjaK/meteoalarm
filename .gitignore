@@ -3,4 +3,5 @@
 .env.php
 .env
 .idea
-nemc-ideas
+/scraper/data-cache/*
+/scraper/vendor
