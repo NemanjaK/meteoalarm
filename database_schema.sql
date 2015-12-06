@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `station` (
   `date_updated` datetime DEFAULT NULL,
   `altitude` float(5,2) NOT NULL,
   `aqi_value` int(3) DEFAULT NULL,
-  `aqi_timestamp` int(3) DEFAULT NULL,
+  `aqi_timestamp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sepa_id` (`sepa_id`),
   UNIQUE KEY `eoi_code` (`eoi_code`)
@@ -109,7 +109,9 @@ CREATE TABLE IF NOT EXISTS `station_aqi_history` (
   `pm10_daily` int(3) unsigned DEFAULT NULL,
   `o3` int(3) unsigned DEFAULT NULL,
   `so2` int(3) unsigned DEFAULT NULL,
-  `timestamp` date NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `stationAqiHistoryFK` (`station_id`),
   CONSTRAINT `stationAqiHistoryFK` FOREIGN KEY (`station_id`) REFERENCES `station` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
