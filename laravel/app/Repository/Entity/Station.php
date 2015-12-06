@@ -3,6 +3,8 @@
 namespace App\Repository\Entity;
 
 
+use App\Repository\StationAqiHistoryRepository;
+
 class Station extends Entity
 {
 
@@ -41,9 +43,13 @@ class Station extends Entity
     /** @field */
     private $aqi_timestamp;
 
+    /** @var StationAqiHistoryRepository */
+    private $historyRepository;
+
     public function __construct($dto = [])
     {
         parent::__construct($dto);
+        $this->historyRepository = StationAqiHistoryRepository::getInstance();
     }
 
     /**
@@ -268,6 +274,10 @@ class Station extends Entity
     public function setAqiTimestamp($aqi_timestamp)
     {
         $this->aqi_timestamp = $aqi_timestamp;
+    }
+
+    public function getHistory($component = null) {
+        $this->historyRepository->getLatestForStationAndComponent($this, $component);
     }
 
 }

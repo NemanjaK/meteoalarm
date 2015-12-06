@@ -23,3 +23,12 @@ Route::resource('/api/notify', 'NotifyController',
 
 Route::resource('/api/quality', 'QualityController',
     ['only' => ['index']]);
+
+Route::resource('/api/station', 'StationController',
+    ['only' => ['index', 'show']]);
+
+Route::resource('/api/component', 'ComponentController',
+    ['only' => ['index', 'show']]);
+
+Route::resource('/api/measurement', 'MeasurementController',
+    ['only' => ['index', 'show']]);
